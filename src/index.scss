@@ -1,0 +1,41 @@
+@import-normalize;
+
+body {
+  background-color: #f5f4f5;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sr-only { // credit: tailwindcss.com
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.loader {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #999899;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  margin: auto;
+  animation: rotate .3s infinite linear;
+}
+
+
