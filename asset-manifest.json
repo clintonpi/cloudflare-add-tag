@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/cloudflare-add-tag/static/css/main.67bbc173.css",
-    "main.js": "/cloudflare-add-tag/static/js/main.da558512.js",
+    "main.js": "/cloudflare-add-tag/static/js/main.1f7493ab.js",
     "static/js/787.fd4c08d5.chunk.js": "/cloudflare-add-tag/static/js/787.fd4c08d5.chunk.js",
     "index.html": "/cloudflare-add-tag/index.html",
     "main.67bbc173.css.map": "/cloudflare-add-tag/static/css/main.67bbc173.css.map",
-    "main.da558512.js.map": "/cloudflare-add-tag/static/js/main.da558512.js.map",
+    "main.1f7493ab.js.map": "/cloudflare-add-tag/static/js/main.1f7493ab.js.map",
     "787.fd4c08d5.chunk.js.map": "/cloudflare-add-tag/static/js/787.fd4c08d5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.67bbc173.css",
-    "static/js/main.da558512.js"
+    "static/js/main.1f7493ab.js"
   ]
 }
