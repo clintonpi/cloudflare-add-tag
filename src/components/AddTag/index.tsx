@@ -7,9 +7,10 @@ interface AddTagProps {
   filteredAstrosNames: Set<string>;
   removeItemFromDropdown: (tagName: string) => void;
   filterDropdown: (filterString: string) => void;
+  addTag: (tagName: string) => void;
 }
 
-const AddTag: FC<AddTagProps> = ({ filterString, setFilterString, filteredAstrosNames, removeItemFromDropdown, filterDropdown }) => {
+const AddTag: FC<AddTagProps> = ({ filterString, setFilterString, filteredAstrosNames, removeItemFromDropdown, filterDropdown, addTag }) => {
   const handleFilter = (e: ChangeEvent) => {
     const inputValue = (e.target as HTMLInputElement).value;
 
@@ -45,6 +46,12 @@ const AddTag: FC<AddTagProps> = ({ filterString, setFilterString, filteredAstros
     return formattedTextChars.join('');
   };
 
+  const createNewTag = (tagName: string) => {
+    addTag(tagName);
+    setFilterString('');
+    filterDropdown('');
+  };
+
   const generateDropdownList = () => {
     const dropdownList: JSX.Element[] = [];
 
@@ -73,6 +80,14 @@ const AddTag: FC<AddTagProps> = ({ filterString, setFilterString, filteredAstros
         </li>
       );
     });
+
+    if (filterString.length > 0 && !filteredAstrosNames.has(filterString)) {
+      dropdownList.push(
+        <li key={filterString}>
+          <button className='add-tag__list__button' onClick={() => createNewTag(filterString)}><span className='create'>Create</span> {filterString}</button>
+        </li>
+      );  
+    }
 
     return dropdownList;
   };
