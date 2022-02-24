@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { getAstros } from '../../helpers';
-import { Astros } from '../../models';
+import { getUsers } from '../../helpers';
+import { User } from '../../models';
 import AddTag from '../AddTag';
 import Tag from '../Tag';
 import './style.scss';
@@ -65,12 +65,12 @@ const TagsWrap = () => {
   useEffect(() => {
     isMounted.current = true;
 
-    getAstros().then((astros: Astros) => {
+    getUsers().then((users: User[]) => {
       if (isMounted.current) {
         const astrosNames = new Set<string>();
 
-        for (let astro of astros.people) {
-          astrosNames.add(astro.name);
+        for (let user of users) {
+          astrosNames.add(user.name);
         }
   
         setAstrosNames(astrosNames);
@@ -95,7 +95,7 @@ const TagsWrap = () => {
       }
       {
         tagNames.size > 0 || astrosNames.size > 0 ? (
-          <AddTag filterString={filterString} setFilterString={setFilterString} filteredAstrosNames={filteredAstrosNames} removeItemFromDropdown={removeItemFromDropdown} filterDropdown={filterDropdown} />
+          <AddTag filterString={filterString} setFilterString={setFilterString} filteredAstrosNames={filteredAstrosNames} removeItemFromDropdown={removeItemFromDropdown} filterDropdown={filterDropdown} addTag={addTag} />
         ) : (
           <div className="loader"><p className='sr-only'>Loading</p></div>
         )
